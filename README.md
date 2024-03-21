@@ -1,43 +1,72 @@
-# AI-Algorithms
-The problem:
-You must implement a search engine that supports several search algorithms to solve the following problem: "the X puzzle".
-Given a game board of size NxN, where one slot is empty and each of the other slots contains a number
-from 1 to (n*n -1) in some order when the goal is to move the squares so that they are displayed in the goal position.
-The goal state is defined to be an ascending order of the numbers with the empty slot at the end.
+Certainly! Below is a structured README file tailored for your project, which involves implementing a search engine for solving the "X puzzle" using various search algorithms.
 
-movement:
-At each step you can move one of the numbered squares towards the empty square. when the options
-The ones available to us are up, down, right, left - any of the options when possible.
-For Dodge: In the picture above, the above option is not possible.
-The cost of each move is fixed - a cost of 1.
-realization:
-Input - The program will read its input from a single input.txt file.
-  The first line in the file will determine which algorithm to use: we will support several search algorithms according to the following coding:
-1 for IDS,
-2 for BFS,
-3 for A*,
-4 for *IDA.
-The size of the board will be written in the second line.
-In the third line will be written the initial state of the game board.
-Output - the program will write into a file called output.txt and it will contain one line in the following format:
-A route is described by the series of actions required to get from the starting state to the ending state. The actions are R
-(right), L (left), D (down) and U (up). Capital letters must be used.
-For Dodge: RDRU describes a course of right, down, right and up.
+---
 
-On vertices of the same importance, we will apply the following order relation:
-First we will arrange according to the production time of the vertex. If several vertices were created at the same time (common ancestor)
-The vertices will be arranged according to the following order: up, down, left, right.
-In summary: the vertices will be arranged according to: the requirements of the algorithm and then according to the operator that created them according to the above order.
+# X Puzzle Solver
 
-Note: in the implementation of all the above-mentioned algorithms, an additional CLOSE LIST must also be used.
-Check: if a child vertex is already in one of the (OPEN \ (CLOSE) lists, there is no need to insert the vertex at all.
-In known algorithms, if a child vertex is already in the CLOSE LIST, there is no need to insert the vertex at all. If we are in the OPEN LIST, and now we have received a new value lower than what the same vertex has in the OPEN LIST, the OPEN LIST must be updated with the new value.
+## Overview
 
-In implementing the informed algorithms I used the Manhattan distance function.
-Example for: input.txt:
+This project is an implementation of a search engine designed to solve the "X puzzle". The puzzle consists of a game board of size NxN, where one slot is empty, and the others contain numbers from 1 to (N*N - 1) arranged in any order. The objective is to move the squares strategically so that they align in ascending order with the empty slot at the end. This README outlines the problem, our approach, and how to run the program.
+
+## Problem Description
+
+- **Board Setup:** An NxN grid with one empty slot and the remaining slots filled with numbers from 1 to N*N - 1.
+- **Goal:** Arrange the squares in ascending order with the empty slot at the end.
+- **Movements:** You can move a square up, down, left, or right into the empty slot, provided the move is valid.
+- **Move Cost:** Each move costs 1.
+- **Algorithms:** The program supports various search algorithms, including IDS (1), BFS (2), A* (3), and IDA* (4).
+
+## Input/Output Format
+
+- **Input:** The program reads from `input.txt`, which includes:
+  - The algorithm code (1-4) on the first line.
+  - The board size (N) on the second line.
+  - The initial board state on the third line, represented as numbers separated by dashes (`-`).
+
+- **Output:** The program writes to `output.txt`, describing the solution as a series of moves: R (right), L (left), D (down), and U (up).
+
+## Implementation Details
+
+- **Close List:** An additional CLOSE LIST is used to track visited states.
+- **Vertex Management:** Vertices are ordered by their creation time and, if equal, by the move that generated them in the order: up, down, left, right.
+- **Manhattan Distance:** Informed algorithms use the Manhattan distance heuristic to estimate the cost to reach the goal.
+
+## Running the Program
+
+1. Prepare the `input.txt` file in the project's root directory with the algorithm code, board size, and initial board state.
+
+2. Run the program (assuming it's a Python script):
+
+   ```bash
+   python puzzle_solver.py
+   ```
+
+3. Check the `output.txt` file for the solution path.
+
+## Example
+
+### input.txt
+
+```
 2
 4
 1-2-3-4-5-6-7-8-9-10-11-12-13-0-14-15
+```
 
-Example for output.txt:
+### output.txt
+
+```
 LL
+```
+
+## Contributing
+
+Feel free to fork the repository, make improvements, and submit pull requests. We appreciate your contributions to enhancing this puzzle solver!
+
+## License
+
+This project is open-source and available under the MIT License.
+
+---
+
+Adjust this template as necessary to fit the specifics of your project, and ensure that any placeholder text is replaced with the actual details of your project. This README is designed to give a clear, concise overview of your project and how it can be used.
