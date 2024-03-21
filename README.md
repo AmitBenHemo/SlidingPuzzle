@@ -1,7 +1,3 @@
-Certainly! Below is a structured README file tailored for your project, which involves implementing a search engine for solving the "X puzzle" using various search algorithms.
-
----
-
 # X Puzzle Solver
 
 ## Overview
@@ -68,5 +64,3 @@ Feel free to fork the repository, make improvements, and submit pull requests. W
 This project is open-source and available under the MIT License.
 
 ---
-
-Adjust this template as necessary to fit the specifics of your project, and ensure that any placeholder text is replaced with the actual details of your project. This README is designed to give a clear, concise overview of your project and how it can be used.
